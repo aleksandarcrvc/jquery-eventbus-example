@@ -12,14 +12,15 @@ var myBus = $({}),
   };
   
   myBus.on("dataEnter", append);
-  $button.click(function(){
+  $button.on('click', function(){
     myBus.trigger("dataEnter", [$input.val()]);
     $input.val("");
   });
-  $deactivate.click(function(){
+  $deactivate.on('click', function(){
     myBus.off("dataEnter", append);
   });
-  $activate.click(function(){
+  $activate.on('click', function(){
+    myBus.off("dataEnter", append);
     myBus.on("dataEnter", append);
   });
 });
